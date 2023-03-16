@@ -7,3 +7,11 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-cockpit (serverCreated)="OnserverAdded($event)" (blueprintCreated)="OnBlueprintAdded($event)"></app-cockpit>
+      <app-server-element *ngFor="let i of serverElements" [srvElement]="i"></app-server-element>
+    </div>
+  </div>
+</div>
