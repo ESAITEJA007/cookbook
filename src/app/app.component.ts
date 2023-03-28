@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cookbook';
+  loadedFeature = 'recipe';
   serverElements = [
     { type: 'server', name: 'Test ENV', content: 'Test Env server' },
     { type: 'server', name: 'DEV ENV', content: 'DEV Env server' }
@@ -25,5 +26,8 @@ export class AppComponent {
       name: blueprintData.serverName,
       content: blueprintData.serverContent
     });
+}
+onNavigate(feature: string){
+  this.loadedFeature = feature;
 }
 }

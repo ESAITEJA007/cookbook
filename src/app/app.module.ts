@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
+import { BasicHighlightDirective } from './basic-highlight.directive';
+import { BetterHighlightDirective } from './better-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ServerElementComponent } from './server-element/server-element.componen
     RecipeDetailComponent,
     RecipeItemComponent,
     CockpitComponent,
-    ServerElementComponent
+    ServerElementComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,

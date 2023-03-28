@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (featureSelected) = onNavigate($event)></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <app-recipes *ngIf="loadedFeature === 'recipe'" ></app-recipes>
+      <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
     </div>
   </div>
 </div>
@@ -12,6 +12,9 @@
     <div class="col-md-12">
       <app-cockpit (serverCreated)="OnserverAdded($event)" (blueprintCreated)="OnBlueprintAdded($event)"></app-cockpit>
       <app-server-element *ngFor="let i of serverElements" [srvElement]="i"></app-server-element>
+      <p appBasicHighlight>Style with basic custom directive</p>
+      <br>
+      <p appBetterHighlight>Style with basic custom directive</p>
     </div>
   </div>
 </div>
