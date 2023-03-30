@@ -15,6 +15,8 @@ import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { BasicHighlightDirective } from './basic-highlight.directive';
 import { BetterHighlightDirective } from './better-highlight.directive';
+import { RecipeService } from './recipes/recipe.service.';
+import { ShoppingService } from './shopping-list/shopping.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { BetterHighlightDirective } from './better-highlight.directive';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [RecipeService, ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service.';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
 })
-export class RecipeListComponent {
-  recipes: Recipe[] = [
-    new Recipe(
-      'Idli',
-      'Breakfast',
-      'https://www.indianhealthyrecipes.com/wp-content/uploads/2022/04/idli-recipe.jpg'
-    ),
-    new Recipe(
-      'Dosa',
-      'Breakfast',
-      'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/09/dosa-recipe.jpg.webp'
-    ),
-  ];
+export class RecipeListComponent implements OnInit {
+  recipess: Recipe[];
+
+  constructor(private recipeService: RecipeService){
+
+  }
+  ngOnInit() {
+    this.recipess = this.recipeService.getrecipes();
+  }
+
+
 }
