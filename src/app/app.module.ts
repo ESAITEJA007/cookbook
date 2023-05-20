@@ -17,6 +17,14 @@ import { BasicHighlightDirective } from './basic-highlight.directive';
 import { BetterHighlightDirective } from './better-highlight.directive';
 import { RecipeService } from './recipes/recipe.service.';
 import { ShoppingService } from './shopping-list/shopping.service';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {path: '', component: RecipesComponent},
+  {path: 'recipe', component: RecipesComponent},
+  {path: 'shopping', component: ShoppingListComponent},
+  {path: 'server', component: CockpitComponent}
+];
 
 @NgModule({
   declarations: [
@@ -36,9 +44,12 @@ import { ShoppingService } from './shopping-list/shopping.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [RecipeService, ShoppingService],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
