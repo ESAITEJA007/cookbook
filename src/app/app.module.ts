@@ -19,12 +19,6 @@ import { RecipeService } from './recipes/recipe.service.';
 import { ShoppingService } from './shopping-list/shopping.service';
 import { RouterModule, Routes } from '@angular/router';
 
-const appRoutes: Routes = [
-  {path: '', component: RecipesComponent},
-  {path: 'recipe', component: RecipesComponent},
-  {path: 'shopping', component: ShoppingListComponent},
-  {path: 'server', component: CockpitComponent}
-];
 
 @NgModule({
   declarations: [
@@ -44,8 +38,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
+    FormsModule
   ],
   providers: [RecipeService, ShoppingService],
   bootstrap: [AppComponent]
