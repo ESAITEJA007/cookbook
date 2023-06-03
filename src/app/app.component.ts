@@ -1,12 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'cookbook';
   loadedFeature = 'recipe';
   serverElements = [
@@ -18,7 +18,14 @@ export class AppComponent {
     first :  '',
     last :  ''
   }
+  detailsForm : FormGroup;
+  genders = ["Male","Female","None"]
+  
+
   @ViewChild('f') formData : NgForm;
+  ngOnInit(){
+    this.detailsForm = new FormGroup({ 'uName': new FormControl(null), desc: new FormControl(null) }) ;
+  }
   OnserverAdded(serverData:{serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
@@ -43,5 +50,8 @@ onSubmit(){
   this.submitted = true;
   this.formData.reset();
 
+}
+onSubmitDetails(){
+   console.log(this.detailsForm);
 }
 }

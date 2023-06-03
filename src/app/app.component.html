@@ -28,6 +28,15 @@
     <p>First Name: {{ userData.first }}</p>
     <p>Last Name: {{ userData.last }}</p>
     </div>
+    <form [formGroup]="detailsForm" (ngSubmit)="onSubmitDetails()">
+      <label for="name">Name:</label>
+      <input type="text" name="name" formControlName="uName"><br><br>
+
+      <br><br>
+      <label for="message">Message:</label><br>
+      <textarea name="message" id="message" cols="30" rows="4" formControlName="desc"></textarea><br><br>
+      <input type="submit" value="Submit">
+  </form>
     
   </div>
 </div>
