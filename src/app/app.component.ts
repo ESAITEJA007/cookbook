@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,12 @@ export class AppComponent {
     { type: 'server', name: 'Test ENV', content: 'Test Env server' },
     { type: 'server', name: 'DEV ENV', content: 'DEV Env server' }
   ];
+  submitted = false;
+  userData = {
+    first :  '',
+    last :  ''
+  }
+  @ViewChild('f') formData : NgForm;
   OnserverAdded(serverData:{serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
@@ -29,5 +36,12 @@ export class AppComponent {
 }
 onNavigate(feature: string){
   this.loadedFeature = feature;
+}
+onSubmit(){
+  this.userData.first = this.formData.value.fname;
+  this.userData.last = this.formData.value.lname;
+  this.submitted = true;
+  this.formData.reset();
+
 }
 }
